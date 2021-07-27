@@ -25,7 +25,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
-    "react-seo-component": "2.0.0",
+    "react-seo-component": "2.0.2",
     "styled-components": "5.1.0",
     "styled-reset": "4.1.3"
   },
