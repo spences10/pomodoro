@@ -4,7 +4,7 @@
 	let title = 'Countdown!';
 	let time_left = 25 * 60;
 	let timer_running = false;
-	let interval: ReturnType<typeof setTimeout>; // Update this line
+	let interval: ReturnType<typeof setTimeout>;
 
 	const pad_time = (time: number) => {
 		return time.toString().padStart(2, '0');
@@ -35,6 +35,16 @@
 		timer_running = false;
 	};
 
+	const toggle_timer = () => {
+		if (timer_running) {
+			stop_timer();
+		} else {
+			start_timer();
+		}
+	};
+
+	$: toggle_button_text = timer_running ? 'Stop' : 'Start';
+
 	onDestroy(() => {
 		clearInterval(interval);
 	});
@@ -47,7 +57,6 @@
 	<span>{seconds}</span>
 </div>
 <div>
-	<button on:click={start_timer}>Start</button>
-	<button on:click={stop_timer}>Stop</button>
+	<button on:click={toggle_timer}>{toggle_button_text}</button>
 	<button on:click={reset_timer}>Reset</button>
 </div>
