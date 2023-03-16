@@ -7,6 +7,7 @@
 	let interval: ReturnType<typeof setTimeout>;
 	let show_milliseconds = false;
 	let milliseconds = 0;
+	let input_minutes = 25;
 
 	const pad_time = (time: number) => {
 		return time.toString().padStart(2, '0');
@@ -14,6 +15,10 @@
 
 	$: minutes = pad_time(Math.floor(time_left / 60));
 	$: seconds = pad_time(time_left - Number(minutes) * 60);
+
+	$: {
+		time_left = input_minutes * 60;
+	}
 
 	const start_timer = () => {
 		if (timer_running) return;
@@ -44,7 +49,7 @@
 
 	const reset_timer = () => {
 		clearInterval(interval);
-		time_left = 25 * 60;
+		time_left = input_minutes * 60;
 		timer_running = false;
 	};
 
@@ -81,5 +86,11 @@
 	<label>
 		<input type="checkbox" bind:checked={show_milliseconds} />
 		Show milliseconds
+	</label>
+</div>
+<div>
+	<label>
+		Set time (minutes):
+		<input type="number" min="0" bind:value={input_minutes} />
 	</label>
 </div>
