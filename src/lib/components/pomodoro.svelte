@@ -23,21 +23,24 @@
 	const start_timer = () => {
 		if (timer_running) return;
 
-		interval = setInterval(() => {
-			if (show_milliseconds) {
-				milliseconds -= 10;
-				if (milliseconds <= 0) {
-					milliseconds = 990;
+		interval = setInterval(
+			() => {
+				if (show_milliseconds) {
+					milliseconds -= 10;
+					if (milliseconds <= 0) {
+						milliseconds = 990;
+						time_left -= 1;
+					}
+				} else {
 					time_left -= 1;
 				}
-			} else {
-				time_left -= 1;
-			}
 
-			if (time_left <= 0) {
-				reset_timer();
-			}
-		}, show_milliseconds ? 10 : 1000);
+				if (time_left <= 0) {
+					reset_timer();
+				}
+			},
+			show_milliseconds ? 10 : 1000
+		);
 		timer_running = true;
 	};
 
@@ -69,28 +72,42 @@
 </script>
 
 <h2>{title}</h2>
-<div>
-	<span>{minutes}</span>
-	<span>:</span>
-	<span>{seconds}</span>
-	{#if show_milliseconds}
+<div class="flex justify-center mb-16">
+	<div class="flex text-9xl">
+		<span>{minutes}</span>
 		<span>:</span>
-		<span>{pad_time(Math.floor(milliseconds / 10))}</span>
-	{/if}
+		<span>{seconds}</span>
+		{#if show_milliseconds}
+			<span>:</span>
+			<span>{pad_time(Math.floor(milliseconds / 10))}</span>
+		{/if}
+	</div>
 </div>
-<div>
-	<button on:click={toggle_timer}>{toggle_button_text}</button>
-	<button on:click={reset_timer}>Reset</button>
+
+<div class="flex justify-evenly mb-10">
+	<button class="btn btn-wide" on:click={toggle_timer}>{toggle_button_text}</button>
+	<button class="btn btn-wide" on:click={reset_timer}>Reset</button>
 </div>
-<div>
-	<label>
-		<input type="checkbox" bind:checked={show_milliseconds} />
-		Show milliseconds
+<div class="form-control max-w-xs">
+	<label class="label cursor-pointer" for="milliseconds">
+		<span class="label-text">Show milliseconds</span>
+		<input
+			class="toggle toggle-sm"
+			id="milliseconds"
+			type="checkbox"
+			bind:checked={show_milliseconds}
+		/>
 	</label>
 </div>
-<div>
+<div class="form-control max-w-xs">
 	<label>
 		Set time (minutes):
-		<input type="number" min="0" bind:value={input_minutes} />
+		<input
+			class="range range-xs range-secondary max-w-sm"
+			type="range"
+			min="5"
+			max="60"
+			bind:value={input_minutes}
+		/>
 	</label>
 </div>
