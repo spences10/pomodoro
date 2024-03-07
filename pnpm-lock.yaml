@@ -43,7 +43,7 @@ devDependencies:
     version: 8.4.31
   postcss-load-config:
     specifier: ^5.0.0
-    version: 5.0.0(postcss@8.4.31)
+    version: 5.0.3(postcss@8.4.31)
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -55,10 +55,10 @@ devDependencies:
     version: 4.0.0
   svelte-check:
     specifier: ^3.0.1
-    version: 3.1.4(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0)
+    version: 3.1.4(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0)
   svelte-preprocess:
     specifier: ^5.0.0
-    version: 5.0.2(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0)(typescript@5.0.2)
+    version: 5.0.2(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0)(typescript@5.0.2)
   tailwindcss:
     specifier: ^3.1.5
     version: 3.2.7(postcss@8.4.31)
@@ -1722,8 +1722,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /lilconfig@3.0.0:
-    resolution: {integrity: sha512-K2U4W2Ff5ibV7j7ydLr+zLAkIg5JJ4lPn1Ltsdt+Tz/IjQ8buJ55pZAxoP34lqIiwtF9iAvtLv3JGv7CAyAg+g==}
+  /lilconfig@3.1.1:
+    resolution: {integrity: sha512-O18pf7nyvHTckunPWCV1XUNXU1piu01y2b7ATJ0ppkUkk8ocqVWBrYjJBCwHDjD/ZWcfyrA0P4gKhzWGi5EINQ==}
     engines: {node: '>=14'}
     dev: true
 
@@ -2091,8 +2091,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /postcss-load-config@5.0.0(postcss@8.4.31):
-    resolution: {integrity: sha512-i069VOAUi6mpTsToA+qPAAfD7m7dfjm9Yhaqma7KEMJcQFM9jerKBU6rTGNcYLErj4sjR9fZ1q30TpFm2K7PSg==}
+  /postcss-load-config@5.0.3(postcss@8.4.31):
+    resolution: {integrity: sha512-90pBBI5apUVruIEdCxZic93Wm+i9fTrp7TXbgdUCH+/L+2WnfpITSpq5dFU/IPvbv7aNiMlQISpUkAm3fEcvgQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       jiti: '>=1.21.0'
@@ -2103,7 +2103,7 @@ packages:
       postcss:
         optional: true
     dependencies:
-      lilconfig: 3.0.0
+      lilconfig: 3.1.1
       postcss: 8.4.31
       yaml: 2.3.4
     dev: true
@@ -2404,7 +2404,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelte-check@3.1.4(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0):
+  /svelte-check@3.1.4(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0):
     resolution: {integrity: sha512-25Lb46ZS4IK/XpBMe4IBMrtYf23V8alqBX+szXoccb7uM0D2Wqq5rMRzYBONZnFVuU1bQG3R50lyIT5eRewv2g==}
     hasBin: true
     peerDependencies:
@@ -2417,7 +2417,7 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 4.0.0
-      svelte-preprocess: 5.0.2(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0)(typescript@4.9.5)
+      svelte-preprocess: 5.0.2(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0)(typescript@4.9.5)
       typescript: 4.9.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -2440,7 +2440,7 @@ packages:
       svelte: 4.0.0
     dev: true
 
-  /svelte-preprocess@5.0.2(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0)(typescript@4.9.5):
+  /svelte-preprocess@5.0.2(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0)(typescript@4.9.5):
     resolution: {integrity: sha512-iXpIoa43VdF7fPkBdoodztZd4H+3EP/GYA66tbuLVtQnM3sWCpsOtc7HjfA7BDR+6VTpqlEnpDmPoXk0dgUa0g==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -2482,14 +2482,14 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.27.0
       postcss: 8.4.31
-      postcss-load-config: 5.0.0(postcss@8.4.31)
+      postcss-load-config: 5.0.3(postcss@8.4.31)
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.0.0
       typescript: 4.9.5
     dev: true
 
-  /svelte-preprocess@5.0.2(postcss-load-config@5.0.0)(postcss@8.4.31)(svelte@4.0.0)(typescript@5.0.2):
+  /svelte-preprocess@5.0.2(postcss-load-config@5.0.3)(postcss@8.4.31)(svelte@4.0.0)(typescript@5.0.2):
     resolution: {integrity: sha512-iXpIoa43VdF7fPkBdoodztZd4H+3EP/GYA66tbuLVtQnM3sWCpsOtc7HjfA7BDR+6VTpqlEnpDmPoXk0dgUa0g==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -2531,7 +2531,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.27.0
       postcss: 8.4.31
-      postcss-load-config: 5.0.0(postcss@8.4.31)
+      postcss-load-config: 5.0.3(postcss@8.4.31)
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.0.0
