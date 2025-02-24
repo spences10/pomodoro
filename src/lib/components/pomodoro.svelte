@@ -72,7 +72,7 @@
 </script>
 
 <h2>{title}</h2>
-<div class="flex justify-center mb-16">
+<div class="mb-16 flex justify-center">
 	<div class="flex text-9xl">
 		<span>{minutes}</span>
 		<span>:</span>
@@ -84,8 +84,10 @@
 	</div>
 </div>
 
-<div class="flex justify-evenly mb-10">
-	<button class="btn btn-wide" on:click={toggle_timer}>{toggle_button_text}</button>
+<div class="mb-10 flex justify-evenly">
+	<button class="btn btn-wide" on:click={toggle_timer}
+		>{toggle_button_text}</button
+	>
 	<button class="btn btn-wide" on:click={reset_timer}>Reset</button>
 </div>
 <div class="form-control max-w-xs">

@@ -3,6 +3,5 @@
 /* Plugin configurations */
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-	themes:
-		valentine --default;
+	themes: valentine --default;
 }
