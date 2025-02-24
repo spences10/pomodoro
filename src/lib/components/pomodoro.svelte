@@ -1,24 +1,25 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-
 	let title = 'Countdown!';
-	let time_left = 25 * 60;
-	let timer_running = false;
+	let time_left = $state(25 * 60);
+	let timer_running = $state(false);
 	let interval: ReturnType<typeof setTimeout>;
-	let show_milliseconds = false;
-	let milliseconds = 0;
-	let input_minutes = 25;
+	let show_milliseconds = $state(false);
+	let milliseconds = $state(0);
+	let input_minutes = $state(25);
 
 	const pad_time = (time: number) => {
 		return time.toString().padStart(2, '0');
 	};
 
-	$: minutes = pad_time(Math.floor(time_left / 60));
-	$: seconds = pad_time(time_left - Number(minutes) * 60);
+	let minutes = $derived(pad_time(Math.floor(time_left / 60)));
+	let seconds = $derived(pad_time(time_left - Number(minutes) * 60));
 
-	$: {
+	$effect(() => {
 		time_left = input_minutes * 60;
-	}
+		return () => {
+			if (interval) clearInterval(interval);
+		};
+	});
 
 	const start_timer = () => {
 		if (timer_running) return;
@@ -64,11 +65,7 @@
 		}
 	};
 
-	$: toggle_button_text = timer_running ? 'Stop' : 'Start';
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
+	let toggle_button_text = $derived(timer_running ? 'Stop' : 'Start');
 </script>
 
 <h2>{title}</h2>
@@ -85,10 +82,10 @@
 </div>
 
 <div class="mb-10 flex justify-evenly">
-	<button class="btn btn-wide" on:click={toggle_timer}
-		>{toggle_button_text}</button
-	>
-	<button class="btn btn-wide" on:click={reset_timer}>Reset</button>
+	<button class="btn btn-wide" onclick={toggle_timer}>
+		{toggle_button_text}
+	</button>
+	<button class="btn btn-wide" onclick={reset_timer}>Reset</button>
 </div>
 <div class="form-control max-w-xs">
 	<label class="label cursor-pointer" for="milliseconds">
