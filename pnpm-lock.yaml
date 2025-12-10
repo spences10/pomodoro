@@ -2652,7 +2652,14 @@ snapshots:
       flatted: 3.3.3
       keyv: 4.5.4
 
-  flatted@3.3.3: {}
+  flatted@3.3.1: {}
+
+  foreground-child@3.1.1:
+    dependencies:
+      cross-spawn: 7.0.6
+      signal-exit: 4.1.0
+
+  fraction.js@4.3.7: {}
 
   fsevents@2.3.2:
     optional: true
